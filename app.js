@@ -2,7 +2,6 @@
 const express = require("express");
 const http = require("http");
 const dotenv = require("dotenv");
-const mongoose = require("mongoose");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const moment = require("moment");
@@ -47,7 +46,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // routing setup
-app.use("/", loginRouter);
+// app.use("/", loginRouter);
+app.get("/", (req, res) => {
+  res.send("Server is running! Welcome to Chat-App 🚀");
+});
 app.use("/users", usersRouter);
 app.use("/inbox", inboxRouter);
 
