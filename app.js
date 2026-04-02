@@ -46,10 +46,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // routing setup
-// app.use("/", loginRouter);
-app.get("/", (req, res) => {
-  res.send("Server is running! Welcome to Chat-App 🚀");
-});
+app.use("", loginRouter);
+// app.get("/", (req, res) => {
+//   res.send("Server is running! Welcome to Chat-App 🚀");
+// });
 app.use("/users", usersRouter);
 app.use("/inbox", inboxRouter);
 
